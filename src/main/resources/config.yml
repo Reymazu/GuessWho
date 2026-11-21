@@ -1,0 +1,17 @@
+# Kecepatan kamera berputar ke pemain giliran (0.05 = pelan, 0.5 = cepat)
+camera-speed: 0.12
+
+# Jeda (dalam tick, 20 = 1 detik) setelah kamera mulai berputar sampai pemain giliran muncul di kursinya
+turn-delay-ticks: 40
+
+# Batas waktu satu giliran dalam detik. 0 = tanpa batas (host pakai /gw next atau pemain /gw pass)
+turn-seconds: 0
+
+# Tinggi gambar dari kaki pemain (dalam blok). 2 = tepat di atas kepala
+image-height: 2
+
+# Tinggi titik yang dilihat kamera, dihitung dari kaki pemain
+look-height: 1.9
+
+# Tebakan salah langsung mengakhiri giliran
+wrong-guess-ends-turn: true
