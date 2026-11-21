@@ -15,3 +15,6 @@ look-height: 1.9
 
 # Tebakan salah langsung mengakhiri giliran
 wrong-guess-ends-turn: true
+
+# Jumlah nyawa tiap pemain. Tebakan salah = nyawa -1, habis = tereliminasi
+lives: 3

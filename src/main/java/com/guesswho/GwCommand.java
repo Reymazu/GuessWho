@@ -125,10 +125,14 @@ public final class GwCommand implements CommandExecutor, TabCompleter {
                 }
             }
             case "next" -> {
-                if (!host(s) || !running(s)) {
+                if (!running(s)) {
                     return true;
                 }
-                gm.game().skip();
+                if (s instanceof Player p && gm.game().isActive(p)) {
+                    gm.game().pass(p); // pemain giliran boleh skip giliran sendiri
+                } else if (host(s)) {
+                    gm.game().skip();
+                }
             }
             case "pass" -> {
                 if (!(s instanceof Player p) || !running(s)) {
@@ -246,8 +250,9 @@ public final class GwCommand implements CommandExecutor, TabCompleter {
     private void help(CommandSender s) {
         Text.send(s, "&6&lGuess Who Am I &7- perintah:");
         Text.send(s, "&e/gw join &7- masuk lobby   &e/gw leave &7- keluar");
-        Text.send(s, "&e/gw guess <jawaban> &7- tebak (saat giliranmu)");
-        Text.send(s, "&e/gw pass &7- akhiri giliranmu   &e/gw themes &7- daftar tema");
+        Text.send(s, "&7Saat giliranmu: &fketik di chat &7untuk bertanya");
+        Text.send(s, "&e/gw guess <jawaban> &7- tebak (salah = nyawa -1)");
+        Text.send(s, "&e/gw next &7- skip giliranmu   &e/gw themes &7- daftar tema");
         if (s.hasPermission("guesswho.host")) {
             Text.send(s, "&6Host: &e/gw setcamera, /gw setseat <n>, /gw clearseats, /gw arena");
             Text.send(s, "&6Host: &e/gw joinall, /gw start <tema|random>, /gw next, /gw reveal [pemain], /gw stop, /gw reload");
