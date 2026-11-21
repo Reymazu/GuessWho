@@ -1,0 +1,14 @@
+name: GuessWho
+version: 1.0.0
+main: com.guesswho.GuessWhoPlugin
+api-version: '26.1'
+description: Minigame "Guess Who Am I" dengan kamera giliran (Java + Bedrock via Geyser)
+commands:
+  gw:
+    description: Perintah utama Guess Who
+    usage: /gw help
+    aliases: [guesswho]
+permissions:
+  guesswho.host:
+    description: Akses perintah host (setup arena, start, stop, next, reveal)
+    default: op
